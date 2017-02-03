@@ -1,0 +1,871 @@
+{
+  "id": 5518795,
+  "name": "firegood",
+  "class": "wizard",
+  "gender": 1,
+  "level": 70,
+  "kills": {
+    "elites": 25340
+  },
+  "paragonLevel": 610,
+  "hardcore": false,
+  "seasonal": false,
+  "seasonCreated": 0,
+  "skills": {
+    "active": [
+      {
+        "skill": {
+          "slug": "electrocute",
+          "name": "Electrocute",
+          "icon": "wizard_electrocute",
+          "level": 15,
+          "categorySlug": "primary",
+          "tooltipUrl": "skill/wizard/electrocute",
+          "description": "This is a Signature spell. Signature spells are free to cast.\r\n\r\nLightning arcs from your fingertips, dealing 138% weapon damage as Lightning. The lightning can jump, hitting up to 2 additional enemies.",
+          "simpleDescription": "Signature Spell\r\n\r\nCast chain lightning that electrocutes up to 3 enemies.",
+          "skillCalcId": "U"
+        },
+        "rune": {
+          "slug": "electrocute-b",
+          "type": "b",
+          "name": "Chain Lightning",
+          "level": 22,
+          "description": "Increase the maximum number of enemies that can be electrocuted to 10.",
+          "simpleDescription": "Increase the maximum number of enemies that can be electrocuted.",
+          "tooltipParams": "rune/electrocute/b",
+          "skillCalcId": "a",
+          "order": 0
+        }
+      },
+      {
+        "skill": {
+          "slug": "disintegrate",
+          "name": "Disintegrate",
+          "icon": "wizard_disintegrate",
+          "level": 21,
+          "categorySlug": "secondary",
+          "tooltipUrl": "skill/wizard/disintegrate",
+          "description": "Cost: 18 Arcane Power\r\n\r\nChannel a beam of pure energy, dealing 390% weapon damage as Arcane.\r\n\r\nDisintegrate damage is increased by 250% weapon damage every second, up to a maximum total of 890% weapon damage as Arcane.",
+          "simpleDescription": "Cost: 18 Arcane Power\r\n\r\nChannel a beam of pure energy that pierces through all enemies.",
+          "skillCalcId": "R"
+        },
+        "rune": {
+          "slug": "disintegrate-d",
+          "type": "d",
+          "name": "Chaos Nexus",
+          "level": 48,
+          "description": "While channeling the beam you become charged with energy and discharge at nearby enemies dealing 115% weapon damage as Arcane.",
+          "simpleDescription": "While channeling the beam you become charged with energy and discharge at nearby enemies, damaging them.",
+          "tooltipParams": "rune/disintegrate/d",
+          "skillCalcId": "Y",
+          "order": 3
+        }
+      },
+      {
+        "skill": {
+          "slug": "magic-weapon",
+          "name": "Magic Weapon",
+          "icon": "wizard_magicweapon",
+          "level": 20,
+          "categorySlug": "conjuration",
+          "tooltipUrl": "skill/wizard/magic-weapon",
+          "description": "Cost: 25 Arcane Power\r\n\r\nImbue your weapon with magical energy, granting it 10% increased damage. Lasts 10 minutes.",
+          "simpleDescription": "Cost: 25 Arcane Power\r\n\r\nImbue your weapon with magical energy, increasing your weapon's effectiveness.",
+          "skillCalcId": "S"
+        },
+        "rune": {
+          "slug": "magic-weapon-c",
+          "type": "c",
+          "name": "Force Weapon",
+          "level": 35,
+          "description": "Increase the damage bonus of Magic Weapon to 20% damage.",
+          "simpleDescription": "Increase the damage bonus of Magic Weapon.",
+          "tooltipParams": "rune/magic-weapon/c",
+          "skillCalcId": "Z",
+          "order": 1
+        }
+      },
+      {
+        "skill": {
+          "slug": "meteor",
+          "name": "Meteor",
+          "icon": "wizard_meteor",
+          "level": 25,
+          "categorySlug": "force",
+          "tooltipUrl": "skill/wizard/meteor",
+          "description": "Cost: 40 Arcane Power\r\n\r\nSummon an immense Meteor that plummets from the sky, crashing into enemies for 740% weapon damage as Fire. The ground it hits is scorched with molten fire that deals 235% weapon damage as Fire over 3 seconds.",
+          "simpleDescription": "Cost: 40 Arcane Power\r\n\r\nUnleash a massive Meteor that scorches enemies caught in its blast.",
+          "skillCalcId": "P"
+        },
+        "rune": {
+          "slug": "meteor-d",
+          "type": "d",
+          "name": "Star Pact",
+          "level": 34,
+          "description": "Expend all remaining Arcane Power. Each point of extra Arcane Power spent increases the impact damage of Meteor by 20% weapon damage as Arcane.",
+          "simpleDescription": "Expend all remaining Arcane Power. Each point of extra Arcane Power spent increases the impact damage of Meteor.\r\n\r\nMeteor's damage turns into Arcane.",
+          "tooltipParams": "rune/meteor/d",
+          "skillCalcId": "Z",
+          "order": 1
+        }
+      },
+      {
+        "skill": {
+          "slug": "ice-armor",
+          "name": "Ice Armor",
+          "icon": "wizard_icearmor",
+          "level": 14,
+          "categorySlug": "conjuration",
+          "tooltipUrl": "skill/wizard/ice-armor",
+          "description": "Cost: 25 Arcane Power\r\n\r\nSurround yourself in a barrier of ice that reduces damage from melee attacks by 12%. Melee attackers are either Chilled or Frozen for 3 seconds. Lasts 10 minutes.\r\n\r\nOnly one Armor may be active at a time.",
+          "simpleDescription": "Cost: 25 Arcane Power\r\n\r\nProtect yourself with a barrier of ice that Chills attackers.\r\n\r\nOnly one Armor may be active at a time.",
+          "skillCalcId": "f"
+        },
+        "rune": {
+          "slug": "ice-armor-d",
+          "type": "d",
+          "name": "Crystallize",
+          "level": 31,
+          "description": "When you are struck by a melee attack, your Armor is increased by 20% for 30 seconds. This effect stacks up to 3 times.",
+          "simpleDescription": "When you are struck by a melee attack, your Armor is increased.",
+          "tooltipParams": "rune/ice-armor/d",
+          "skillCalcId": "Z",
+          "order": 1
+        }
+      },
+      {
+        "skill": {
+          "slug": "familiar",
+          "name": "Familiar",
+          "icon": "wizard_familiar",
+          "level": 22,
+          "categorySlug": "conjuration",
+          "tooltipUrl": "skill/wizard/familiar",
+          "description": "Cost: 20 Arcane Power\r\n\r\nSummon a Familiar that attacks your enemies for 240% weapon damage as Arcane. This companion cannot be targeted or damaged by enemies. Lasts 10 minutes.",
+          "simpleDescription": "Cost: 20 Arcane Power\r\n\r\nSummon a mystical Familiar companion. Your Familiar is immune to damage and assists you in combat.",
+          "skillCalcId": "j"
+        },
+        "rune": {
+          "slug": "familiar-a",
+          "type": "a",
+          "name": "Sparkflint",
+          "level": 30,
+          "description": "Summon a fiery Familiar that grants you 10% increased damage.",
+          "simpleDescription": "Summon a fiery Familiar that grants you increased damage.",
+          "tooltipParams": "rune/familiar/a",
+          "skillCalcId": "a",
+          "order": 0
+        }
+      }
+    ],
+    "passive": [
+      {
+        "skill": {
+          "slug": "paralysis",
+          "name": "Paralysis",
+          "icon": "wizard_passive_paralysis",
+          "level": 37,
+          "tooltipUrl": "skill/wizard/paralysis",
+          "description": "Lightning spells have a 15% chance to Stun all targets hit for 1.5 seconds.",
+          "flavor": "\"Some people are shocked by my mastery of magic.\" —Larra Stormlash",
+          "skillCalcId": "V"
+        }
+      },
+      {
+        "skill": {
+          "slug": "audacity",
+          "name": "Audacity",
+          "icon": "x1_wizard_passive_audacity",
+          "level": 66,
+          "tooltipUrl": "skill/wizard/audacity",
+          "description": "You deal 30% additional damage to enemies within 15 yards.",
+          "flavor": "\"Those who dare approach you do so at their own peril.\" —Valthek, High Councilor of the Vizjerei",
+          "skillCalcId": "i"
+        }
+      },
+      {
+        "skill": {
+          "slug": "galvanizing-ward",
+          "name": "Galvanizing Ward",
+          "icon": "wizard_passive_galvanizingward",
+          "level": 40,
+          "tooltipUrl": "skill/wizard/galvanizing-ward",
+          "description": "As long as you have not taken damage in the last 5 seconds you gain a protective shield that absorbs the next 60% of your Life in damage.",
+          "flavor": "\"Power begets power. The excess energy from one spell is absorbed by the other, and so the effect is sustained.\" —Excerpt from Grand Master Clavaught's Lecture on Synergistic Effects in Esoteric Arcane Spheres",
+          "skillCalcId": "f"
+        }
+      },
+      {
+        "skill": {
+          "slug": "arcane-dynamo",
+          "name": "Arcane Dynamo",
+          "icon": "wizard_passive_arcanedynamo",
+          "level": 55,
+          "tooltipUrl": "skill/wizard/arcane-dynamo",
+          "description": "When you cast a Signature spell, you gain a Flash of Insight. After 5 Flashes of Insight, your next non-Signature spell deals 60% additional damage. \r\n\r\nThe following skills are Signature spells:\r\n Magic Missile\r\n Shock Pulse\r\n Spectral Blade\r\n Electrocute",
+          "flavor": "Dare not to invoke the wrath of a Wizard. You are nothing more than a loose coalescence of dust before their ire, easily scattered at a whim.",
+          "skillCalcId": "T"
+        }
+      }
+    ]
+  },
+  "items": {
+    "head": {
+      "id": "Unique_WizardHat_004_x1",
+      "name": "Storm Crow",
+      "icon": "unique_wizardhat_004_x1_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/CkAItMO7xwISBwgEFV8hYRYd8xig4B3egvzlHeYV2w0d9HAHrR0-dXkFMIsaOLsCQABQElgEYJADgAFGtQGFsaRoGL6FieYCUARYAg"
+    },
+    "torso": {
+      "id": "P4_Unique_Chest_012",
+      "name": "Aquila Cuirass",
+      "icon": "p4_unique_chest_012_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/Cs0BCMq_1KALEgcIBBXiTidFHXGLd_AdhAOh1h1nPuzkHXMjBlAd3DtTaDCLWji7AkAAUBJYBGCOA2orCgwIABDR86mIgYCAoBwSGwjOn6eQBRIHCAQV9gpf_jCLUjgAQAFYBJABAGorCgwIABDS86mIgYCAoBwSGwjQgsu-BRIHCAQV9gpf_jCLUjgAQAFYBJABAGorCgwIABDWwNv6iYCAoCkSGwi8r9eFDRIHCAQV9gpf_jCLUjgAQAFYBJABAIABRo0BMCIZYLUBMSIZYBjEu7rSCFAEWAI",
+      "transmogItem": {
+        "id": "ChestArmor_207",
+        "name": "Rakkisgard Armor",
+        "icon": "chestarmor_207_demonhunter_male",
+        "displayColor": "white",
+        "tooltipParams": "item/rakkisgard-armor"
+      }
+    },
+    "feet": {
+      "id": "P2_Unique_Boots_01",
+      "name": "Nilfur's Boast",
+      "icon": "p2_unique_boots_01_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/ClUIhIDkFRIHCAQVfmtnQR3egvzlHdw7U2gdhAOh1h29VYTTHXGLd_Awi1o44wJAAFASWARgwAOAAUalAb1VhNOtAcc2_C-1AaBFm3-4AfzKsJQGwAEFGPytu5YIUARYAg"
+    },
+    "hands": {
+      "id": "Unique_Gloves_Set_13_x1",
+      "name": "Vyr's Grasping Gauntlets",
+      "icon": "unique_gloves_set_13_x1_demonhunter_male",
+      "displayColor": "green",
+      "tooltipParams": "item/ClsIiKT9sA0SBwgEFVyXwXod08wHYx3SxzB7HZinjsAdfnZVoR1-VrMuHfRwB60wi1o4nAJAAFASWARgnAKAAUalAZinjsCtAZinjsC1AclbkqS4AYybge0BwAEDGLjdjKwPUARYAqABuN2MrA8",
+      "setItemsEquipped": [
+        "Unique_Gloves_Set_13_x1"
+      ]
+    },
+    "shoulders": {
+      "id": "P4_Unique_Shoulder_103",
+      "name": "Mantle of Channeling",
+      "icon": "p4_unique_shoulder_103_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/CkAIgs7HuwESBwgEFbKNyHId3DtTaB2EA6HWHWFClNkdZz7s5B1xi3fwMItaONsBQABQElgEYJYCgAFGtQHS-MgVGOS2xKwOUARYAg"
+    },
+    "legs": {
+      "id": "Unique_Pants_006_p1",
+      "name": "Depth Diggers",
+      "icon": "unique_pants_006_p1_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/ClwIgoDXowgSBwgEFTH42NEdP_IJ2B2EA6HWHTmd5AQd3oL85R0yicdaMIsaONsBQABQElgEYJYCgAFGjQGektWlpQEyicdarQHcO1NotQGfktWluAGQ46axCMABARidn7jiBVAEWAI",
+      "transmogItem": {
+        "id": "Pants_207",
+        "name": "Rakkisgard Leg Plates",
+        "icon": "pants_207_demonhunter_male",
+        "displayColor": "white",
+        "tooltipParams": "item/rakkisgard-leg-plates"
+      }
+    },
+    "bracers": {
+      "id": "Unique_Bracer_004_x1",
+      "name": "Steady Strikers",
+      "icon": "unique_bracer_004_x1_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/CloI0NnYHRIHCAQVADUHNx1-dlWhHdw7U2gdhAOh1h1ADVULHXGLd_AdKUwmIzCLGjj_AUAAUBJYBGDEAoABRqUBQA1VC60BhC42KbUB2yzKy7gBv_2fvQLAAQUYgNS58AZQBFgC"
+    },
+    "mainHand": {
+      "id": "Unique_Sword_1H_112_x1",
+      "name": "Deathwish",
+      "icon": "unique_sword_1h_112_x1_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/CoMBCNXz1c8DEgcIBBU4XI1QHfIOb3kdFplnOx1mIwZQHZax9vId9HAHrTCLWjjUAkAAUBJYBGCtA2orCgwIABDG7dGFgoCAwAYSGwjq7ZL4BhIHCAQVQi03qTCPUjgAQAFYBJABAIABRqUBlrH28q0BlrH28rUBm9nZ77gBtci67AvAAQ8Y8PDqiApQBFgC"
+    },
+    "offHand": {
+      "id": "P4_Unique_Orb_002",
+      "name": "Etched Sigil",
+      "icon": "p4_unique_orb_002_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/ClYIq7TP8QYSBwgEFY2rd14d9HAHrR1-VrMuHZwGAMsdvVWE0x2t05k5MItaOOwBQABQElgEYKsCgAFGpQG9VYTTrQF-0_R1tQHaw45xuAHnx5iOCsABBBiarr3nC1AEWAI"
+    },
+    "waist": {
+      "id": "P4_Unique_Belt_06",
+      "name": "Hergbrash’s Binding",
+      "icon": "p4_unique_belt_06_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/CkAIw6nzmg8SBwgEFYXGMFgdBAY-tR2EA6HWHWFClNkd2rLxiB3cO1NoMItaOL4CQABQElgEYJMDgAFGtQHAp0LUGIqahoMLUARYAg"
+    },
+    "rightFinger": {
+      "id": "Unique_Ring_014_x1",
+      "name": "The Wailing Host",
+      "icon": "unique_ring_014_x1_demonhunter_male",
+      "displayColor": "green",
+      "tooltipParams": "item/CowBCKWa0cgBEgcIBBXi4jW5HWYjBlAd3DtTaB1-dlWhHZinjsAdFkn0hx20T4luMItaONQBQABQElgEYI0Cai8KDAgAEIjWmsCAgICgNBIfCIvHtRESBwgEFejloMEwiwI4AEAAUBJYBJABANgBeoABRqUBfnZVoa0B5hXbDbUBNlVdRLgBtb6Y9AvAAQIYu_TQ7AhQBFgCoAG79NDsCKAB-cLM7Ag",
+      "setItemsEquipped": [
+        "Unique_Ring_015_x1",
+        "Unique_Ring_014_x1"
+      ]
+    },
+    "leftFinger": {
+      "id": "Unique_Ring_015_x1",
+      "name": "Litany of the Undaunted",
+      "icon": "unique_ring_015_x1_demonhunter_male",
+      "displayColor": "green",
+      "tooltipParams": "item/Co0BCMmm85AMEgcIBBVDbza5HdCGadcdG13PRB3mFdsNHXRFp4kd3DtTaB1-dlWhMIsaOMoBQABQElgEYIECajAKDAgAEOjJ5IeBgICgLhIgCOG6iKMFEgcIBBULi6LBMIsCOABAAFASWASQAQDYAV6AAUalAXRFp4mtAWYjBlC1ATZVXUS4AeGRk6MCwAEBGPnCzOwIUARYAqABu_TQ7AigAfnCzOwI",
+      "setItemsEquipped": [
+        "Unique_Ring_015_x1",
+        "Unique_Ring_014_x1"
+      ]
+    },
+    "neck": {
+      "id": "Unique_Amulet_005_x1",
+      "name": "Ouroboros",
+      "icon": "unique_amulet_005_x1_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/Co0BCJCR3cUDEgcIBBX60QhbHbdbVE0dlz-d2h2wwQlyHUANVQsd9HAHrR1-VrMuMIsaOIMCQABQElgEYMwCajAKDAgAEPeexvOAgIDADRIgCLru9NQJEgcIBBVsF6PBMIsCOABAAFASWASQAQDYASCAAUalAUANVQutAWYjBlC1AbDFRGS4AYrf5bQKwAECGPTHxrALUARYAg"
+    }
+  },
+  "followers": {
+    "templar": {
+      "slug": "templar",
+      "level": 70,
+      "items": {
+        "special": {
+          "id": "x1_FollowerItem_Templar_Legendary_01",
+          "name": "Enchanting Favor",
+          "icon": "x1_followeritem_templar_legendary_01_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/CkAIwaKJyQsSBwgEFY9EW9Idco4dIR1qSWnqHZsGAMsdOydvJB2BgcbEMIsCOLEDQABQElgEYLEDgAFGtQHsC2NEGOHtpdoF"
+        },
+        "mainHand": {
+          "id": "Unique_Sword_1H_101_x1",
+          "name": "Thunderfury, Blessed Blade of the Windseeker",
+          "icon": "unique_sword_1h_101_x1_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/Cm0I-tLfkAQSBwgEFVa3elAdG13PRB2MHL6WHWYjBlAdkFjWHh30cAetMItaOJYCQABQElgEYJYCaisKDAgAELPO5fSFgIDAIRIbCM_6m9MIEgcIBBVCLTepMI9SOABAAVgEkAEAgAFGtQGb2dnvGKzd1YcK"
+        },
+        "offHand": {
+          "id": "Unique_Shield_107_x1",
+          "name": "Coven's Criterion",
+          "icon": "unique_shield_107_x1_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/CkAI5YCckQMSBwgEFY499AsdS7X5Sx1-VrMuHWc-7OQdTT8Y9h2cBgDLMIsaOP0BQABQElgEYP0BgAFGtQETDDtsGJz2ob8B"
+        },
+        "rightFinger": {
+          "id": "Unique_Ring_102_x1",
+          "name": "Wyrdward",
+          "icon": "unique_ring_102_x1_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/Cm8IlLfO3AwSBwgEFUDad7sdf46HzB1DTkRRHWYjBlAd0p-eRB2bhvbiMIsCOPACQABQElgEYPACai0KDAgAEPDfw9aAgIDAPBIdCOqR8qcMEgcIBBUuMKTBMIsCOABAAFASWASQAQCAAUa1ATZVXUQY_5bByAg"
+        },
+        "leftFinger": {
+          "id": "Unique_Ring_021_x1",
+          "name": "Manald Heal",
+          "icon": "unique_ring_021_x1_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/CkUI8K6xkgISBwgEFUBWRrkdrNOZOR06ddqMHUNORFEdfnZVoR0Nv1KzHZuG9uIwixI41AJAAFASWARg1AKAAUa1ATZVXUQY_6bN6wg"
+        },
+        "neck": {
+          "id": "Unique_Amulet_104_x1",
+          "name": "The Ess of Johan",
+          "icon": "unique_amulet_104_x1_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/CkAIncewjw0SBwgEFTpuXV0df46HzB2bBgDLHWYjBlAduLwgeh3zcAetMIsCOI0CQABQElgEYI0CgAFGtQGwxURkGPS469UL"
+        }
+      },
+      "stats": {
+        "goldFind": 0,
+        "magicFind": 0,
+        "experienceBonus": 81
+      },
+      "skills": [
+        {
+          "skill": {
+            "slug": "heal",
+            "name": "Heal",
+            "icon": "templar_heal_110",
+            "level": 5,
+            "tooltipUrl": "skill/templar/heal",
+            "description": "Cooldown: 30 seconds\r\n\r\nHeals you and the Templar for 193112 Life.",
+            "simpleDescription": "Cooldown: 30 seconds\r\n\r\nHeals you and the Templar.",
+            "skillCalcId": "a"
+          }
+        },
+        {
+          "skill": {
+            "slug": "loyalty",
+            "name": "Loyalty",
+            "icon": "templar_loyalty",
+            "level": 10,
+            "tooltipUrl": "skill/templar/loyalty",
+            "description": "Regenerates 6437 Life per second for you and the Templar.",
+            "simpleDescription": "Provides Life regeneration for you and the Templar.",
+            "skillCalcId": "b"
+          }
+        },
+        {
+          "skill": {
+            "slug": "charge",
+            "name": "Charge",
+            "icon": "templar_shieldcharge",
+            "level": 15,
+            "tooltipUrl": "skill/templar/charge",
+            "description": "Cooldown: 10 seconds\r\n\r\nCharges a target, dealing 280% weapon damage and stunning all enemies within 8 yards for 3 seconds.",
+            "simpleDescription": "Cooldown: 10 seconds\r\n\r\nCharges an enemy, dealing damage and stunning nearby enemies.",
+            "skillCalcId": "c"
+          }
+        },
+        {
+          "skill": {
+            "slug": "guardian",
+            "name": "Guardian",
+            "icon": "templar_guardian",
+            "level": 20,
+            "tooltipUrl": "skill/templar/guardian",
+            "description": "Cooldown: 30 seconds\r\n\r\nRush to your aid, knocking back enemies within 15 yards and healing you for 182383 Life.",
+            "simpleDescription": "Cooldown: 30 seconds\r\n\r\nWhen your Life is low, the Templar will come to your aid, knocking back nearby enemies and healing you.",
+            "skillCalcId": "W"
+          }
+        }
+      ]
+    },
+    "scoundrel": {
+      "slug": "scoundrel",
+      "level": 70,
+      "items": {
+        "special": {
+          "id": "x1_FollowerItem_Scoundrel_Legendary_03",
+          "name": "Slipka's Letter Opener",
+          "icon": "x1_followeritem_scoundrel_legendary_03_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/ClgIjs6UxAYSBwgEFYuhVzodKUwmIx1F4E0iHbDBCXIdnAYAyx3K-rygMIlaOMICQABQElgGYMICgAFGtQGmAUzyyAHl3N8DyAHe0IoNyAH0__0EyAG_qI4EGJaGvaUH"
+        },
+        "mainHand": {
+          "id": "Unique_XBow_006_x1",
+          "name": "Bakkan Caster",
+          "icon": "unique_xbow_006_x1_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/CnEIkZGuDBIHCAQV0-mg9R14Vpw4HXKOHSEdZiMGUB2bBgDLHW2SV8Idyfq8oDCLAji5A0AAUBJYBGC5A2orCgwIABC62cm6g4CAwAMSGwizxoClChIHCAQVI5aumDCPEjgAQAFYBJABAIABRrUBRmDKChjZ2PilAQ"
+        },
+        "rightFinger": {
+          "id": "Unique_Ring_015_x1",
+          "name": "Litany of the Undaunted",
+          "icon": "unique_ring_015_x1_demonhunter_male",
+          "displayColor": "green",
+          "tooltipParams": "item/CkUIpeXjiwoSBwgEFUNvNrkdOLLA1R1yjh0hHUNORFEd5hXbDR2bhvbiHX52VaEwixI4_QFAAFASWARg_QGAAUa1ATZVXUQY-cLM7AigAbv00OwIoAH5wszsCA",
+          "setItemsEquipped": [
+            "Unique_Ring_015_x1",
+            "Unique_Ring_014_x1"
+          ]
+        },
+        "leftFinger": {
+          "id": "Unique_Ring_014_x1",
+          "name": "The Wailing Host",
+          "icon": "unique_ring_014_x1_demonhunter_male",
+          "displayColor": "green",
+          "tooltipParams": "item/CkUIk87S0AwSBwgEFeLiNbkdHaONxB1yjh0hHSCNN1QdQ05EUR2bhvbiHeYV2w0wixI4qwJAAFASWARgqwKAAUa1ATZVXUQYu_TQ7AigAbv00OwIoAH5wszsCA",
+          "setItemsEquipped": [
+            "Unique_Ring_015_x1",
+            "Unique_Ring_014_x1"
+          ]
+        },
+        "neck": {
+          "id": "Amulet14",
+          "name": "Mesmerism Hate",
+          "icon": "amulet14_demonhunter_male",
+          "displayColor": "yellow",
+          "tooltipParams": "item/Cj0Io_fPpQESBwgEFa3FRGQdgy42KR1OwwlyHUZnq6cdruTqESILCAEVbEIDABgiICAwiQI47wNAAFAMYO8DGNqWpsQM"
+        }
+      },
+      "stats": {
+        "goldFind": 0,
+        "magicFind": 0,
+        "experienceBonus": 105
+      },
+      "skills": [
+        {
+          "skill": {
+            "slug": "crippling-shot",
+            "name": "Crippling Shot",
+            "icon": "scoundrel_cripplingshot",
+            "level": 5,
+            "tooltipUrl": "skill/scoundrel/crippling-shot",
+            "description": "Cooldown: 4 seconds\r\n\r\nRanged attack that deals 140% weapon damage and slows enemies hit by 80% for 4 seconds.",
+            "simpleDescription": "Cooldown: 4 seconds\r\n\r\nRanged attack that slows enemies.",
+            "skillCalcId": "a"
+          }
+        },
+        {
+          "skill": {
+            "slug": "dirty-fighting",
+            "name": "Dirty Fighting",
+            "icon": "scoundrel_dirtyfighting",
+            "level": 10,
+            "tooltipUrl": "skill/scoundrel/dirty-fighting",
+            "description": "Cooldown: 6 seconds\r\n\r\nBlinds nearby enemies in front of the Scoundrel for 2 seconds.",
+            "simpleDescription": "Cooldown: 6 seconds\r\n\r\nBlinds nearby enemies in front of the Scoundrel.",
+            "skillCalcId": "b"
+          }
+        },
+        {
+          "skill": {
+            "slug": "powered-shot",
+            "name": "Powered Shot",
+            "icon": "scoundrel_powershot",
+            "level": 15,
+            "tooltipUrl": "skill/scoundrel/powered-shot",
+            "description": "Cooldown: 8 seconds\r\n\r\nRanged attack that explodes on impact, dealing 310% weapon damage as Arcane to enemies within 10 yards and has a 100% chance to Stun enemies for 2 seconds.",
+            "simpleDescription": "Cooldown: 8 seconds\r\n\r\nDeals damage in an area that has a chance to Stun enemies.",
+            "skillCalcId": "c"
+          }
+        },
+        {
+          "skill": {
+            "slug": "anatomy",
+            "name": "Anatomy",
+            "icon": "scoundrel_anatomy",
+            "level": 20,
+            "tooltipUrl": "skill/scoundrel/anatomy",
+            "description": "Increases Critical Hit Chance by 1.8% for you and the Scoundrel.",
+            "simpleDescription": "Increases Critical Hit Chance for you and the Scoundrel.",
+            "skillCalcId": "W"
+          }
+        }
+      ]
+    },
+    "enchantress": {
+      "slug": "enchantress",
+      "level": 70,
+      "items": {
+        "special": {
+          "id": "x1_FollowerItem_Enchantress_Legendary_03",
+          "name": "Vadim's Surge",
+          "icon": "x1_followeritem_enchantress_legendary_03_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/CkAI7ZDB_w4SBwgEFfokI-Udco4dIR07J28kHZsGAMsdaklp6h3zcAetMItSOJUCQABQElgEYJUCgAFGtQE1o2ItGIvs5q0D"
+        },
+        "mainHand": {
+          "id": "Unique_Staff_103_x1",
+          "name": "The Smoldering Core",
+          "icon": "unique_staff_103_x1_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/CoUBCNTs48YNEgcIBBWFrDi6HaEp3AUdhpD82h3e0_WiHWYjBlAd_KykdDCJUjjYAkAAUBJYBmDYAmorCgwIABCFzqnpgICAoCUSGwiqq4v0BxIHCAQVQi03qTCPAjgAQAFYBJABAIABRrUBaCnlgcgBmO6VBMgBiP2oBMgB0-vGJ8gB9P_9BBj1zbrcCA"
+        },
+        "rightFinger": {
+          "id": "Unique_Ring_018_p2",
+          "name": "Nagelring",
+          "icon": "unique_ring_018_p2_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/CjsI38vJ6goSBwgEFV8TOLkdhAOh1h3MptfHHWYjBlAd3DtTaDCLWjinA0AAUBJYBGCnA4ABRrUBNlVdRBjBsr_sCA"
+        },
+        "leftFinger": {
+          "id": "Unique_Ring_014_x1",
+          "name": "The Wailing Host",
+          "icon": "unique_ring_014_x1_demonhunter_male",
+          "displayColor": "green",
+          "tooltipParams": "item/ClsInLDOkAsSBwgEFeLiNbkdco4dIR04ssDVHUNORFEdfnZVoR2bhvbiHeYV2w0wixI44AJAAFASWARg4AKAAUalAUNORFGtAZinjsC1ATZVXUS4AaPszo0IwAEHGLv00OwIoAG79NDsCA",
+          "setItemsEquipped": [
+            "Unique_Ring_014_x1"
+          ]
+        },
+        "neck": {
+          "id": "Unique_Amulet_101_x1",
+          "name": "Haunt of Vaxo",
+          "icon": "unique_amulet_101_x1_demonhunter_male",
+          "displayColor": "orange",
+          "tooltipParams": "item/Cm8I6bj_jAsSBwgEFRfJW10dt1tUTR1mIwZQHZsGAMsdflazLh3zcAetMIsCOMEDQABQElgEYMEDai0KDAgAENTFjfGAgIDgPBIdCKCFiOgPEgcIBBWn5bHBMIsCOABAAFASWASQAQCAAUa1AbDFRGQYrqTe1Qs"
+        }
+      },
+      "stats": {
+        "goldFind": 0,
+        "magicFind": 6,
+        "experienceBonus": 68
+      },
+      "skills": [
+        {
+          "skill": {
+            "slug": "charm",
+            "name": "Charm",
+            "icon": "enchantress_charm",
+            "level": 15,
+            "tooltipUrl": "skill/enchantress/charm",
+            "description": "Cooldown: 18 seconds\r\n\r\nCharms an enemy to fight for you for 8 seconds.",
+            "simpleDescription": "Cooldown: 18 seconds\r\n\r\nTemporarily Charms an enemy to fight for you.",
+            "skillCalcId": "a"
+          }
+        },
+        {
+          "skill": {
+            "slug": "missile-ward",
+            "name": "Missile Ward",
+            "icon": "enchantress_missileward",
+            "level": 20,
+            "tooltipUrl": "skill/enchantress/missile-ward",
+            "description": "Buffs you and the Enchantress, reducing damage from ranged attacks by 6%.",
+            "simpleDescription": "Reduces damage from ranged attacks for you and the Enchantress.",
+            "skillCalcId": "b"
+          }
+        },
+        {
+          "skill": {
+            "slug": "erosion",
+            "name": "Erosion",
+            "icon": "enchantress_scorchedearth",
+            "level": 25,
+            "tooltipUrl": "skill/enchantress/erosion",
+            "description": "Cooldown: 15 seconds\r\n\r\nConjures a pool of energy that deals 330% weapon damage as Arcane over 5 seconds. Affected enemies will also take 3% increased damage.",
+            "simpleDescription": "Cooldown: 15 seconds\r\n\r\nConjures a pool of energy that deals damage and causes affected enemies to take additional damage.",
+            "skillCalcId": "X"
+          }
+        },
+        {
+          "skill": {
+            "slug": "mass-control",
+            "name": "Mass Control",
+            "icon": "enchantress_masscharm",
+            "level": 30,
+            "tooltipUrl": "skill/enchantress/mass-control",
+            "description": "Cooldown: 18 seconds\r\n\r\nLob a bulb of magical energy that hexes enemies in an area into chickens for 5 seconds.",
+            "simpleDescription": "Cooldown: 18 seconds\r\n\r\nHexes a nearby group of enemies.",
+            "skillCalcId": "W"
+          }
+        }
+      ]
+    }
+  },
+  "legendaryPowers": [
+    {
+      "id": "Unique_Mace_2H_103_x1",
+      "name": "The Furnace",
+      "icon": "unique_mace_2h_103_x1_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/the-furnace"
+    },
+    {
+      "id": "Unique_Chest_101_x1",
+      "name": "Shi Mizu's Haori",
+      "icon": "unique_chest_101_x1_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/shi-mizus-haori"
+    },
+    {
+      "id": "p2_Unique_Ring_Wizard_001",
+      "name": "Halo of Arlyse",
+      "icon": "p2_unique_ring_wizard_001_demonhunter_male",
+      "displayColor": "orange",
+      "tooltipParams": "item/halo-of-arlyse"
+    }
+  ],
+  "stats": {
+    "life": 560007,
+    "damage": 1590270,
+    "toughness": 15897200,
+    "healing": 416215,
+    "attackSpeed": 1.4699999749660493,
+    "armor": 6555,
+    "strength": 77,
+    "dexterity": 77,
+    "vitality": 5140,
+    "intelligence": 10499,
+    "physicalResist": 1596,
+    "fireResist": 1612,
+    "coldResist": 1416,
+    "lightningResist": 1617,
+    "poisonResist": 1604,
+    "arcaneResist": 1597,
+    "critDamage": 4.640000000000001,
+    "blockChance": 0,
+    "blockAmountMin": 0,
+    "blockAmountMax": 0,
+    "damageIncrease": 0,
+    "critChance": 0.48000000075,
+    "damageReduction": 0,
+    "thorns": 0,
+    "lifeSteal": 0,
+    "lifePerKill": 7040,
+    "goldFind": 1.0499999999999998,
+    "magicFind": 0,
+    "lifeOnHit": 0,
+    "primaryResource": 114,
+    "secondaryResource": 0
+  },
+  "progression": {
+    "act1": {
+      "completed": true,
+      "completedQuests": [
+        {
+          "slug": "the-fallen-star",
+          "name": "The Fallen Star"
+        },
+        {
+          "slug": "the-legacy-of-cain",
+          "name": "The Legacy of Cain"
+        },
+        {
+          "slug": "a-shattered-crown",
+          "name": "A Shattered Crown"
+        },
+        {
+          "slug": "reign-of-the-black-king",
+          "name": "Reign of the Black King"
+        },
+        {
+          "slug": "sword-of-the-stranger",
+          "name": "Sword of the Stranger"
+        },
+        {
+          "slug": "the-broken-blade",
+          "name": "The Broken Blade"
+        },
+        {
+          "slug": "the-doom-in-wortham",
+          "name": "The Doom in Wortham"
+        },
+        {
+          "slug": "trailing-the-coven",
+          "name": "Trailing the Coven"
+        },
+        {
+          "slug": "the-imprisoned-angel",
+          "name": "The Imprisoned Angel"
+        },
+        {
+          "slug": "return-to-new-tristram",
+          "name": "Return to New Tristram"
+        }
+      ]
+    },
+    "act2": {
+      "completed": true,
+      "completedQuests": [
+        {
+          "slug": "shadows-in-the-desert",
+          "name": "Shadows in the Desert"
+        },
+        {
+          "slug": "the-road-to-alcarnus",
+          "name": "The Road to Alcarnus"
+        },
+        {
+          "slug": "city-of-blood",
+          "name": "City of Blood"
+        },
+        {
+          "slug": "a-royal-audience",
+          "name": "A Royal Audience"
+        },
+        {
+          "slug": "unexpected-allies",
+          "name": "Unexpected Allies"
+        },
+        {
+          "slug": "betrayer-of-the-horadrim",
+          "name": "Betrayer of the Horadrim"
+        },
+        {
+          "slug": "blood-and-sand",
+          "name": "Blood and Sand"
+        },
+        {
+          "slug": "the-black-soulstone",
+          "name": "The Black Soulstone"
+        },
+        {
+          "slug": "the-scouring-of-caldeum",
+          "name": "The Scouring of Caldeum"
+        },
+        {
+          "slug": "lord-of-lies",
+          "name": "Lord of Lies"
+        }
+      ]
+    },
+    "act3": {
+      "completed": true,
+      "completedQuests": [
+        {
+          "slug": "the-siege-of-bastions-keep",
+          "name": "The Siege of Bastion's Keep"
+        },
+        {
+          "slug": "turning-the-tide",
+          "name": "Turning the Tide"
+        },
+        {
+          "slug": "the-breached-keep",
+          "name": "The Breached Keep"
+        },
+        {
+          "slug": "tremors-in-the-stone",
+          "name": "Tremors in the Stone"
+        },
+        {
+          "slug": "machines-of-war",
+          "name": "Machines of War"
+        },
+        {
+          "slug": "siegebreaker",
+          "name": "Siegebreaker"
+        },
+        {
+          "slug": "heart-of-sin",
+          "name": "Heart of Sin"
+        }
+      ]
+    },
+    "act4": {
+      "completed": true,
+      "completedQuests": [
+        {
+          "slug": "fall-of-the-high-heavens",
+          "name": "Fall of the High Heavens"
+        },
+        {
+          "slug": "the-light-of-hope",
+          "name": "The Light of Hope"
+        },
+        {
+          "slug": "beneath-the-spire",
+          "name": "Beneath the Spire"
+        },
+        {
+          "slug": "prime-evil",
+          "name": "Prime Evil"
+        }
+      ]
+    },
+    "act5": {
+      "completed": true,
+      "completedQuests": [
+        {
+          "slug": "the-fall-of-westmarch",
+          "name": "The Fall of Westmarch"
+        },
+        {
+          "slug": "souls-of-the-dead",
+          "name": "Souls of the Dead"
+        },
+        {
+          "slug": "the-pandemonium-gate",
+          "name": "The Pandemonium Gate"
+        },
+        {
+          "slug": "the-battlefields-of-eternity",
+          "name": "The Battlefields of Eternity"
+        },
+        {
+          "slug": "breaching-the-fortress",
+          "name": "Breaching the Fortress"
+        },
+        {
+          "slug": "angel-of-death",
+          "name": "Angel of Death"
+        }
+      ]
+    }
+  },
+  "dead": false,
+  "last-updated": 1478578744
+}
