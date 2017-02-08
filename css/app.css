@@ -29,6 +29,10 @@
 
 /*.card-image {
   float: left;
-  width: 40%;
+  width: 35%;
   height: 250px;
 }*/
+
+table.highlight tbody tr:hover {
+    background-color: #8c9eff !important;
+}
