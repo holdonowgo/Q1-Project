@@ -1,0 +1,129 @@
+{
+    "id": "Unique_WizardHat_004_x1",
+    "name": "Storm Crow",
+    "icon": "unique_wizardhat_004_x1_demonhunter_male",
+    "displayColor": "orange",
+    "tooltipParams": "item/CkAItMO7xwISBwgEFV8hYRYd8xig4B3egvzlHeYV2w0d9HAHrR0-dXkFMIsaOLsCQABQElgEYJADgAFGtQGFsaRoGL6FieYCUARYAg",
+    "requiredLevel": 70,
+    "itemLevel": 70,
+    "stackSizeMax": 0,
+    "bonusAffixes": 0,
+    "bonusAffixesMax": 0,
+    "accountBound": true,
+    "flavorText": "\"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame.\" —Legends of the Forgotten World",
+    "typeName": "Ancient Legendary Wizard Hat",
+    "type": {
+        "twoHanded": false,
+        "id": "WizardHat"
+    },
+    "damageRange": "0–0 Damage",
+    "elementalType": "lightning",
+    "armor": {
+        "min": 673.0,
+        "max": 673.0
+    },
+    "slots": ["head"],
+    "attributes": {
+        "primary": [{
+            "text": "Lightning skills deal 20% more damage.",
+            "color": "blue",
+            "affixType": "utility"
+        }, {
+            "text": "+948 Intelligence",
+            "color": "blue",
+            "affixType": "default"
+        }, {
+            "text": "+130 Resistance to All Elements",
+            "color": "blue",
+            "affixType": "default"
+        }, {
+            "text": "Critical Hit Chance Increased by 6.0%",
+            "color": "blue",
+            "affixType": "default"
+        }],
+        "secondary": [{
+            "text": "+14 Maximum Arcane Power (Wizard Only)",
+            "color": "blue",
+            "affixType": "utility"
+        }],
+        "passive": [{
+            "text": "30% chance to cast a fiery ball when attacking.",
+            "color": "orange",
+            "affixType": "default"
+        }]
+    },
+    "attributesRaw": {
+        "Intelligence_Item": {
+            "min": 948.0,
+            "max": 948.0
+        },
+        "Post_2_1_2_Drop": {
+            "min": 1.0,
+            "max": 1.0
+        },
+        "Crit_Percent_Bonus_Capped": {
+            "min": 0.06,
+            "max": 0.06
+        },
+        "Ancient_Rank": {
+            "min": 1.0,
+            "max": 1.0
+        },
+        "Durability_Max": {
+            "min": 400.0,
+            "max": 400.0
+        },
+        "Season": {
+            "min": 0.0,
+            "max": 0.0
+        },
+        "Durability_Cur": {
+            "min": 315.0,
+            "max": 315.0
+        },
+        "Loot_2_0_Drop": {
+            "min": 1.0,
+            "max": 1.0
+        },
+        "Item_Power_Passive#itemPassive_Unique_WizardHat_004_x1": {
+            "min": 0.3,
+            "max": 0.3
+        },
+        "Item_Legendary_Item_Base_Item": {
+            "min": 1.755623813E9,
+            "max": 1.755623813E9
+        },
+        "Item_LegendaryItem_Level_Override": {
+            "min": 70.0,
+            "max": 70.0
+        },
+        "Damage_Dealt_Percent_Bonus#Lightning": {
+            "min": 0.2,
+            "max": 0.2
+        },
+        "Armor_Item": {
+            "min": 673.0,
+            "max": 673.0
+        },
+        "Resistance_All": {
+            "min": 130.0,
+            "max": 130.0
+        },
+        "Resource_Max_Bonus#Arcanum": {
+            "min": 14.0,
+            "max": 14.0
+        },
+        "Item_Binding_Level_Override": {
+            "min": 2.0,
+            "max": 2.0
+        }
+    },
+    "randomAffixes": [],
+    "gems": [],
+    "socketEffects": [],
+    "craftedBy": [],
+    "seasonRequiredToDrop": -1,
+    "isSeasonRequiredToDrop": false,
+    "description": null,
+    "blockChance": "+0.0% Chance to Block"
+}
