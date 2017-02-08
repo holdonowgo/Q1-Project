@@ -20,20 +20,36 @@ $(document).ready(function() {
         let priTxt = $('#modalPriTxt')[0];
         let secHead = $('#modalSecHead')[0];
         let secTxt = $('#modalSecTxt')[0];
+        let modalCardContent = $('#modalCardContent')[0];
 
         let itemParams = JSON.parse(localStorage.tooltipParams)[id];
-
-        itemHead.innerText = itemParams.name;
-        priTxt.innerText = '';
-        secTxt.innerText = '';
-
+        console.log(itemParams);
+        // itemHead.innerText = itemParams.name;
+        // priTxt.innerText = '';
+        // secTxt.innerText = '';
+        $("#modalCardContent").empty();
+        $("#modalCardContent").append($(`<h5>${itemParams.name}</h5>`));
+        $("#modalCardContent").append($(`<h6>${itemParams.typeName}</h6>`));
+        $("#modalCardContent").append($(`<b>Primary</b><br/>`));
         for(let primAttr of itemParams.attributes.primary) {
-          priTxt.innerText += primAttr.text + '\n\r';
+          // priTxt.innerText += primAttr.text + ' ' + primAttr.color + '\n\r';
+          $("#modalCardContent").append($(`<i class="tiny material-icons">label</i><span style="color:${primAttr.color}">${primAttr.text}</span><br/>`));
         }
 
+        $("#modalCardContent").append($(`<br/><b>Secondary</b><br/>`));
         for(let secAttr of itemParams.attributes.secondary) {
-          secTxt.innerText += secAttr.text + '\n\r';
+          // secTxt.innerText += secAttr.text + ' ' + secAttr.color + '\n\r';
+          $("#modalCardContent").append($(`<i class="tiny material-icons">label_outline</i><span style="color:${secAttr.color}">${secAttr.text}</span><br/>`));
         }
+
+        $("#modalCardContent").append($(`<br/><b>Passive</b><br/>`));
+        for(let pasAttr of itemParams.attributes.passive) {
+          // secTxt.innerText += secAttr.text + ' ' + secAttr.color + '\n\r';
+          $("#modalCardContent").append($(`<p style="color:${pasAttr.color}">${pasAttr.text}</p>`));
+        }
+
+        $("#modalCardContent").append($(`<br/><i>${itemParams.flavorText}</i>`));
+        $('#card-image').attr('src', `http://media.blizzard.com/d3/icons/items/large/${itemParams.icon}.png?locale=en_US&apikey=${localStorage.apiKey}`)
       },
       // complete: function() { alert('Closed'); } // Callback for Modal close
     }
