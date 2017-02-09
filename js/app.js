@@ -52,10 +52,12 @@ $(document).ready(function() {
             }
 
             $("#modalCardContent").append($(`<br/><i>${itemParams.flavorText}</i>`));
-            $('#card-image').attr('src', `http://media.blizzard.com/d3/icons/items/large/${itemParams.icon}.png?locale=en_US&apikey=${localStorage.apiKey}`)
+            $('#card-image').attr('src', `http://media.blizzard.com/d3/icons/items/large/${itemParams.icon}.png?locale=en_US&apikey=${localStorage.apiKey}`);
         },
         // complete: function() { alert('Closed'); } // Callback for Modal close
     });
+
+    // $('.tooltipped').tooltip({delay: 50});
 });
 // Initialize collapsible (uncomment the line below if you use the dropdown variation)
 //$('.collapsible').collapsible();
@@ -199,118 +201,108 @@ function highlightGear(attribute) {
     console.log(itemsJson);
 }
 
+function populateStatsTable(heroJson) {
+    let stats = heroJson.stats;
+    let statsArray = [];
+    for (let key in stats) { // bind stats table
+        $("#tblStats").find('tbody')
+            .append($(`<tr name='${key}' id='${key}'>`)
+                .append($('<td>')
+                    .text(statLookup[key])
+                )
+                .append($("<td class='stat-num'>")
+                    .text(parseFloat(stats[key]).toFixed(2))
+                )
+            );
+        $(`#${key}`).hover(function(event) {
+            console.log(event.target);
+            console.log($(this)[0].id);
+            // highlightGear(event.target.id);
+        }, function(event) {
+            // console.log('mouseout', $(this));
+        });
+    }
+    localStorage['heroItems'] = JSON.stringify(heroJson.items);
+    localStorage['heroSkills'] = JSON.stringify(heroJson.skills);
+}
+
+function populateGearCards(heroJson) {
+    for (let key in heroJson.items) {
+        let flavorText;
+        let url = `https://us.api.battle.net/d3/data/${heroJson.items[key].tooltipParams}?locale=en_US&apikey=${localStorage.apiKey}`;
+        fetch(url)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(itemJson) {
+                let tooltipParams = JSON.parse(localStorage.tooltipParams);
+                tooltipParams[itemJson.id] = itemJson;
+                localStorage.tooltipParams = JSON.stringify(tooltipParams);
+                $(`#${key}`).empty();
+
+                let width = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '64px';
+                let height = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '128px';
+                let src = `http://media.blizzard.com/d3/icons/items/large/${heroJson.items[key].icon}.png?locale=en_US&apikey=${localStorage.apiKey}`;
+                $(`#${key}`)
+                    .append($('<div class="card-image waves-effect waves-block waves-light">')
+                        .append($(`<img class="activator" style="width:${width};height:${height};margin:0px auto;display:block;border:solid;border-color:${heroJson.items[key].displayColor};vertical-align:text-bottom" src=${src}>`))
+                    )
+                    .append($('<div class="card-content center">')
+                        .append($('<span class="card-title activator grey-text text-darken-4" style="text-align:center; font-size:medium">')
+                            .text(itemJson.name)
+                        )
+                        .append($(`<a class="waves-effect waves-light btn blue-grey" href="#modalStats" valign-wrapper id="${itemJson.id}"><i class="tiny material-icons valign">chat_bubble_outline</i></a>`))
+                    )
+                    .append($('<div class="card-reveal">')
+                        .append($(`<span class="card-title grey-text text-darken-4" style="text-align:center; font-size:medium;">`)
+                            .text(itemJson.typeName)
+                        )
+                        .append($('<p>')
+                            .text(itemJson.flavorText)
+                        )
+                    );
+            })
+    }
+}
+
 function bindHeroData(heroId) {
     getHeroProfile(heroId)
         .then(function(heroJson) {
-            let stats = heroJson.stats;
-            let statsArray = [];
-            for (let key in stats) { // bind stats table
-                $("#tblStats").find('tbody')
-                    .append($(`<tr name='${key}' id='${key}'>`)
-                        .append($('<td>')
-                            .text(statLookup[key])
-                        )
-                        .append($("<td class='stat-num'>")
-                            .text(parseFloat(stats[key]).toFixed(2))
-                        )
-                    );
-                $(`#${key}`).hover(function(event) {
-                    console.log(event.target);
-                    console.log($(this)[0].id);
-                    // highlightGear(event.target.id);
-                }, function(event) {
-                    // console.log('mouseout', $(this));
-                });
-            }
-            localStorage['heroItems'] = JSON.stringify(heroJson.items);
-            localStorage['heroSkills'] = JSON.stringify(heroJson.skills);
-            return heroJson;
-        })
-        .then(function(heroJson) {
-            for (let key in heroJson.items) {
-                let flavorText;
-                let url = `https://us.api.battle.net/d3/data/${heroJson.items[key].tooltipParams}?locale=en_US&apikey=${localStorage.apiKey}`;
-                fetch(url)
-                    .then(function(response) {
-                        return response.json();
-                    })
-                    .then(function(itemJson) {
-                        let tooltipParams = JSON.parse(localStorage.tooltipParams);
-                        tooltipParams[itemJson.id] = itemJson;
-                        localStorage.tooltipParams = JSON.stringify(tooltipParams);
-                        $(`#${key}`).empty();
 
-                        let width = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '64px';
-                        let height = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '128px';
-                        let src = `http://media.blizzard.com/d3/icons/items/large/${heroJson.items[key].icon}.png?locale=en_US&apikey=${localStorage.apiKey}`;
-                        $(`#${key}`)
-                            .append($('<div class="card-image waves-effect waves-block waves-light">')
-                                .append($(`<img class="activator" style="width:${width};height:${height};margin:0px auto;display:block;border:solid;border-color:${heroJson.items[key].displayColor};vertical-align:text-bottom" src=${src}>`))
-                            )
-                            .append($('<div class="card-content center">')
-                                .append($('<span class="card-title activator grey-text text-darken-4" style="text-align:center; font-size:medium">')
-                                    .text(itemJson.name)
-                                )
-                                .append($(`<a class="waves-effect waves-light btn blue-grey" href="#modalStats" id="${itemJson.id}">Stats</a>`))
-                            )
-                            .append($('<div class="card-reveal">')
-                                .append($(`<span class="card-title grey-text text-darken-4" style="text-align:center; font-size:medium;">`)
-                                    .text(itemJson.typeName)
-                                )
-                                .append($('<p>')
-                                    .text(itemJson.flavorText)
-                                )
-                            );
-                    })
-                // .then(function(tooltipParamsObj) {
-                //     let tooltipParams = JSON.parse(localStorage.tooltipParams);
-                //     tooltipParams[tooltipParamsObj.id] = tooltipParamsObj;
-                //     localStorage.tooltipParams = JSON.stringify(tooltipParams);
-                // });
-            }
+            populateStatsTable(heroJson);
 
             return heroJson;
         })
         .then(function(heroJson) {
-            console.log(heroJson.skills.active);
+            populateGearCards(heroJson);
+
+            return heroJson;
+        })
+        .then(function(heroJson) {
+          let skillToolTipText ;
+            $('#tblRowActiveSkills').empty();
             for (let skillObj of heroJson.skills.active) {
-              console.log(skillObj);
                 let iconSkill = skillObj.skill.icon;
                 let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${localStorage.apiKey}`;
-                console.log(srcSkill);
+                let description  = skillObj.skill.description;
+                console.log(description);
+                let flavor = skillObj.skill.flavor
+                console.log(flavor);;
 
-                $('#tblRowSkills').append(`<td>`).append(`<img src=${srcSkill}>`);
+               skillToolTipText = description + '\n\r\n\r' + flavor;
+                console.log(skillToolTipText);
+                $('#tblRowActiveSkills').append(`<td>`).append(`<img src=${srcSkill}>`);
+            }
 
+            $('#tblRowPassiveSkills').empty();
+            for (let skillObj of heroJson.skills.passive) {
+                let iconSkill = skillObj.skill.icon;
+                let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${localStorage.apiKey}`;
 
-                // $(`#${key}`)
-                //     .append($('<div class="card-image waves-effect waves-block waves-light">')
-                //         .append($(`<img class="activator" style="width:${width};height:${height};margin:0px auto;display:block;border:solid;border-color:${heroJson.items[key].displayColor};vertical-align:text-bottom" src=${src}>`))
-                //     )
-                //     .append($('<div class="card-content center">')
-                //         .append($('<span class="card-title activator grey-text text-darken-4" style="text-align:center; font-size:medium">')
-                //             .text(itemJson.name)
-                //         )
-                //         .append($(`<a class="waves-effect waves-light btn blue-grey" href="#modalStats" id="${itemJson.id}">Stats</a>`))
-                //     )
-                //     .append($('<div class="card-reveal">')
-                //         .append($(`<span class="card-title grey-text text-darken-4" style="text-align:center; font-size:medium;">`)
-                //             .text(itemJson.typeName)
-                //         )
-                //         .append($('<p>')
-                //             .text(itemJson.flavorText)
-                //         )
-                //     );
+                $('#tblRowPassiveSkills').append(`<td>`).append(`<a class="img tooltipped" data-position="bottom" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i>"></div><img src=${srcSkill}>`);
+                $(document).ready(function(){
+                    $('.tooltipped').tooltip({delay: 50, html: true});
+                });
             }
         });
-}
-
-function populateStatsTable(stats) {
-    for (let stat of stats) {
-        $("#tblStats").find('tbody')
-            .append($('<tr>')
-                .append($('<td>')
-                    .text(stat)
-                )
-            );
-    }
 }
