@@ -279,30 +279,40 @@ function bindHeroData(heroId) {
             return heroJson;
         })
         .then(function(heroJson) {
-          let skillToolTipText ;
+            let skillToolTipText;
             $('#tblRowActiveSkills').empty();
             for (let skillObj of heroJson.skills.active) {
                 let iconSkill = skillObj.skill.icon;
                 let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${localStorage.apiKey}`;
-                let description  = skillObj.skill.description;
-                console.log(description);
-                let flavor = skillObj.skill.flavor
-                console.log(flavor);;
 
-               skillToolTipText = description + '\n\r\n\r' + flavor;
-                console.log(skillToolTipText);
-                $('#tblRowActiveSkills').append(`<td>`).append(`<img src=${srcSkill}>`);
+                let skillToolTipText = skillObj.skill.description;
+                if (skillObj.skill.flavor) {
+                  // console.log(skillObj.skill.flavor);
+                    skillToolTipText += skillObj.skill.flavor;
+                }
+                $('#tblRowActiveSkills').append(`<td>`).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i>"></div><img src=${srcSkill}>`);
             }
 
             $('#tblRowPassiveSkills').empty();
             for (let skillObj of heroJson.skills.passive) {
                 let iconSkill = skillObj.skill.icon;
                 let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${localStorage.apiKey}`;
-
-                $('#tblRowPassiveSkills').append(`<td>`).append(`<a class="img tooltipped" data-position="bottom" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i>"></div><img src=${srcSkill}>`);
-                $(document).ready(function(){
-                    $('.tooltipped').tooltip({delay: 50, html: true});
+                let skillToolTipText = skillObj.skill.description;
+                if (skillObj.skill.flavor) {
+                  // console.log(skillObj.skill.flavor);
+                    // skillToolTipText += skillObj.skill.flavor;
+                    skillToolTipText += skillObj.skill.flavor;
+                }
+                let y = "\"Power begets power. The excess energy from one spell is absorbed by the other, and so the effect is sustained.\" —Excerpt from Grand Master Clavaught's Lecture on Synergistic Effects in Esoteric Arcane Spheres";
+                // $('#tblRowPassiveSkills').append(`<td>`).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i>"></div><img src=${srcSkill}>`);
+                $('#tblRowPassiveSkills').append($("<td>")).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i></div><img src=${srcSkill}></a>`);
+                $(document).ready(function() {
+                    $('.tooltipped').tooltip({
+                        delay: 50,
+                        html: true
+                    });
                 });
             }
+            // console.log("\"Power begets power. The excess energy from one spell is absorbed by the other, and so the effect is sustained.\" —Excerpt from Grand Master Clavaught's Lecture on Synergistic Effects in Esoteric Arcane Spheres");
         });
 }
