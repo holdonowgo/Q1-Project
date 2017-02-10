@@ -390,7 +390,7 @@ function bindHeroData(heroId) {
                     continue;
                 }
                 let iconSkill = skillObj.skill.icon;
-                let srcSkill = `https://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${APIKEY}`;
+                let srcSkill = `https://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${_apiKey}`;
                 let skillToolTipText = skillObj.skill.description;
                 if (skillObj.skill.flavor) {}
                 // $('#tblRowPassiveSkills').append($("<td>")).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i></div><img src=${srcSkill}></a>`);
