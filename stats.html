@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
@@ -15,9 +16,10 @@
 
 <body>
     <div class="container">
+        <!-- <img src="background/background.jpg" display -->
         <!-- Navbar goes here -->
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper black white-text" style="height: 100px;background-image: url('background/diablo-3-ros-headbanner.jpg')">
                 <a href="#" class="brand-logo center">DIII VIEW DEMO</a>
                 <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="sass.html">Sass</a></li>
@@ -64,11 +66,34 @@
         </div>
         <!-- Page Layout here -->
         <div class='row'>
-            <div class='col s3 m4 l3'>
-                <table class='highlight striped' id='tblStats' style="line-height: 0px;">
+            <div class='col s12 m4 l4'>
+                <table class='highlight striped responsive-table bordered scroll-table' id='tblStats' style="line-height: 0px;">
                     <thead>
                         <tr>
-                            <th data-field="id">Gear Bonuses</th>
+                            <th data-field="id" style='width:90%'><center><h5>Gear Bonuses</h5><center></th>
+                        </tr>
+                        <tr>
+                            <th id='icon-header'>
+                              <center>
+                              <div>
+                                <a class="img tooltipped element" data-position="top" data-delay="50" data-tooltip="Fire" style='color:red' id='fire'>
+                                    <i class="mdi mdi-fire mdi-36px"></i>
+                                </a>
+                                <a class="img tooltipped element" data-position="top" data-delay="50" data-tooltip="Cold" style='color:blue'>
+                                    <i class="mdi mdi-snowflake mdi-36px" id='snowflake'></i>
+                                </a>
+                                <a class="img tooltipped element" data-position="top" data-delay="50" data-tooltip="Lightning" style='color:orange'>
+                                    <i class="mdi mdi-flash mdi-36px" id='flash'></i>
+                                </a>
+                                <a class="img tooltipped v" data-position="top" data-delay="50" data-tooltip="Poison" style='color:green'>
+                                    <i class="mdi mdi-test-tube mdi-36px" id='poison'></i>
+                                </a>
+                                <a class="img tooltipped element" data-position="top" data-delay="50" data-tooltip="Physical" style='color:black'>
+                                    <i class="mdi mdi-weight mdi-36px" id='physical'></i>
+                                </a>
+                              </div>
+                            </center>
+                            </th>
                         </tr>
                     </thead>
 
@@ -76,241 +101,73 @@
                     </tbody>
                 </table>
             </div>
-            <div class='col s9 m8 l9'>
+            <div class='col s12 m8 l8' style="height: 900px; overflow: scroll;">
                 <div class="row">
-                    <div class="col s12 m4 l3">
-                    </div>
-                    <div class="col s12 m8 l9">
-                    </div>
-                </div>
-                <div class="row ">
                     <div class="col s12 m4 l4">
-                        <!-- <span class="header" style='text-align: center'>Shoulders</span> -->
                         <div class="card card-small hoverable" id='shoulders'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_shoulders.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                     <div class="col s12 m4 l4">
-                        <!-- <h4 class="header" style='text-align: center'>Helmet</h4> -->
                         <div class="card card-small hoverable" id='head'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_helm.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-                <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                     <div class="col s12 m4 l4">
-                        <!-- <h4 class="header" style='text-align: center'>Amulet</h4> -->
                         <div class="card card-small hoverable" id='neck'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_neck.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12 m6 l4">
                         <div class="card card-small hoverable" id='hands'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_hands.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                     <div class="col s12 m6 l4">
                         <div class="card card-small hoverable" id='torso'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_torso.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                     <div class="col s12 m6 l4">
                         <div class="card card-small hoverable" id=bracers>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_bracers.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12 m6 l4">
-                        <!-- <h4 class="header" style='text-align: center'>Right Finger</h4> -->
                         <div class="card card-small hoverable" id='rightFinger'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_rightFinger.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                     <div class="col s12 m6 l4">
-                        <!-- <h4 class="header" style='text-align: center'>Waist</h4> -->
                         <div class="card card-small hoverable" id='waist'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_waist.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                     <div class="col s12 m6 l4">
-                        <!-- <h4 class="header" style='text-align: center'>Left Finger</h4> -->
                         <div class="card card-small hoverable" id='leftFinger'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_leftFinger.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12 m6 l4">
-                        <!-- <h4 class="header" style='text-align: center'>Main Hand</h4> -->
                         <div class="card card-small hoverable" id='mainHand'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_mainHand.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                     <div class="col s12 m6 l4">
-                        <!-- <h4 class="header" style='text-align: center'>Legs</h4> -->
                         <div class="card card-small hoverable" id='legs'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_legs.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                     <div class="col s12 m6 l4">
-                        <!-- <h4 class="header" style='text-align: center'>Off Hand</h4> -->
                         <div class="card card-small hoverable" id='offHand'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_offHand.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12 m6 l4">
-                        <!-- <p>s12 m6 l2</p> -->
                     </div>
                     <div class="col s12 m6 l4">
-                        <!-- <h4 class="header" style='text-align: center'>Feet</h4> -->
                         <div class="card card-small hoverable" id='feet'>
-                            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" style="width:100px;height:175px;margin:0px auto;display:block;border:solid;border-color:orange;vertical-align:text-bottom" src="gear/placeholder_feet.png">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Storm Crow<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p><i>"When the sky was torn from the sea, Storm Crow appeared from within the thundering clouds to grant mankind dominion over the living flame." —Legends of the Forgotten World</i></p>
-              </div> -->
                         </div>
                     </div>
                     <div class="col s12 m6 l4">
-                        <!-- <p>s12 m6 l2</p> -->
                     </div>
                 </div>
-                <!-- <div class="row">
-                    <div class="col s12">
-                        <div class="carousel" id='heroesCarosuel'>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

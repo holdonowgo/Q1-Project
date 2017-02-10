@@ -36,3 +36,13 @@
 table.highlight tbody tr:hover {
     background-color: #8c9eff !important;
 }
+
+.scroll-table {
+  display: block;
+  height: 500px;
+  overflow-y: scroll;
+}
+.mid {
+  vertical-align: middle;
+  width: 20%
+}

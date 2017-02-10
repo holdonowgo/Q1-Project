@@ -2,20 +2,20 @@ let _name;
 let _battleTag;
 let _apiKey;
 
-if(!localStorage.name) {
-  _name = NAME;
-}else {
-  _name = localStorage.name;
+if (!localStorage.name) {
+    _name = NAME;
+} else {
+    _name = localStorage.name;
 }
-if(!localStorage.battleTag) {
-  _battleTag = BATTLETAG;
-}else {
-  _battleTag = localStorage.battleTag;
+if (!localStorage.battleTag) {
+    _battleTag = BATTLETAG;
+} else {
+    _battleTag = localStorage.battleTag;
 }
-if(!localStorage.apiKey) {
-  _apiKey = APIKEY;
-}else {
-  _apiKey = localStorage.apiKey;
+if (!localStorage.apiKey) {
+    _apiKey = APIKEY;
+} else {
+    _apiKey = localStorage.apiKey;
 }
 
 // Initialize collapse button
@@ -107,15 +107,15 @@ let statLookup = {
 };
 
 let statHighlightLookup = {
-    // "life": 'LIFE',
+    "life": 'Life',
     // "damage": 'DAMAGE',
-    // "toughness": 'TOUGHNESS',
-    // "healing": 'HEALING',
+    "toughness": 'Toughness',
+    "healing": 'Healing',
     // "attackSpeed": 'ATTACK SPEED',
-    // "armor": 'ARMOR',
-    // "strength": 'STRENGTH',
-    // "dexterity": 'DEXTERITY',
-    // "vitality": 'VITALITY',
+    "armor": 'Armor',
+    "strength": 'Strength',
+    "dexterity": 'Dextarity',
+    "vitality": 'Vitality',
     "intelligence": 'Intelligence',
     // "physicalResist": 'PHYSICAL RESISTANCE',
     // "fireResist": 'FIRE RESISTANCE',
@@ -128,9 +128,9 @@ let statHighlightLookup = {
     // "blockAmountMin": 'BLOCK MIN',
     // "blockAmountMax": 'BLOCK MAX',
     // "damageIncrease": 'DAMAGE INCREASE',
-    "critChance": 'Critical Hit Chance'
+    "critChance": 'Critical Hit Chance',
     // "damageReduction": 'DAMAGE REDUCTION',
-    // "thorns": 'THORNS',
+    "thorns": 'Thorns'
     // "lifeSteal": 'LIFE STEAL',
     // "lifePerKill": 'LIFE PER KILL',
     // "goldFind": 'GOLD FIND',
@@ -163,8 +163,6 @@ function bindHeros(heroObjs) {
         let divCarousel = document.getElementById('heroesCarosuel');
         let carouselItem = document.createElement('a');
         carouselItem.addEventListener('click', function(evt) {
-
-            // $("#tblStats").find('tbody').empty();
             localStorage.heroId = evt.target.name;
             bindHeroData(evt.target.name);
         });
@@ -173,14 +171,12 @@ function bindHeros(heroObjs) {
         let carouselImage = document.createElement('img');
         carouselImage.setAttribute("id", `${heroObj.id}`)
         carouselImage.setAttribute("name", `${heroObj.id}`)
+
         let gender = heroObj.gender === 0 ? 'male' : 'female';
         let heroClass = heroObj.class;
         carouselImage.setAttribute('src', `avatars/${heroClass}_${gender}.png`);
         carouselItem.appendChild(carouselImage);
 
-
-        // .append($('<td>')
-        //     .text(statLookup[key])
         let p1 = document.createElement('h5');
         p1.textContent = `${heroObj.name}`;
         let p2 = document.createElement('h6');
@@ -188,14 +184,9 @@ function bindHeros(heroObjs) {
 
         carouselItem.appendChild(p1);
         carouselItem.appendChild(p2);
-
-        // let heroText = document.createTextNode(`${heroObj.name} Level: ${heroObj.level}`);
-        // carouselItem.appendChild(heroText);
     }
 
     //init carousel
-    // let slider = $('.carousel');
-    // slider.carousel();
     $('.carousel').carousel({
         distribution: -50,
         indicators: true,
@@ -204,7 +195,6 @@ function bindHeros(heroObjs) {
     });
 
     // //add a new item
-    // slider.append('<a class="carousel-item active" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>');
 
     //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
     if ($('.carousel').hasClass('initialized')) {
@@ -212,16 +202,12 @@ function bindHeros(heroObjs) {
     }
 
     //just reinit the carousel
-    // $('.carousel').carousel();
     $('.carousel').carousel({
         distribution: -50,
         indicators: true,
         padding: 200,
         shift: 50
     });
-
-    // console.log(slider.children()[0].id);
-    // bindHeroData(slider.children()[0].id);
 }
 
 function getCareerProfile() {
@@ -242,7 +228,6 @@ function getCareerProfile() {
 
 function getHeroProfile(heroId) {
     let url = `https://us.api.battle.net/d3/profile/${_name}-${_battleTag}/hero/${heroId}?locale=en_US&apikey=${_apiKey}`;
-    // console.log(url);
     return fetch(url)
         .then(function(response) {
             if (response.ok) {
@@ -267,16 +252,10 @@ function populateStatsTable(heroJson) {
         $("#tblStats").find('tbody')
             .append($(`<tr name='${key}' id='${key}'>`)
                 .hover(function(event) {
-                        // $( this ).fadeOut( 100 );
-                        // $( this ).fadeIn( 500 );
-                        // console.log($(this).closest('tr')[0].id);
                         let lookupText = statHighlightLookup[$(this).closest('tr')[0].id];
                         let itemJson = JSON.parse(localStorage.tooltipParams);
                         for (let key in itemJson) {
-                            // console.log(itemJson);
-                            // console.log(key);
                             let item = itemJson[key];
-                            // console.log(item);
                             for (let attr of item.attributes.primary) {
                                 if (attr.text.includes(lookupText)) {
                                     if ($(`[name="${item.id}"]`)[0]) {
@@ -305,13 +284,6 @@ function populateStatsTable(heroJson) {
                     .text(parseFloat(stats[key]).toFixed(2))
                 )
             );
-        $(`#${key}`).hover(function(event) {
-            // console.log(event.target);
-            // console.log($(this)[0].id);
-            // highlightGear(event.target.id);
-        }, function(event) {
-            // console.log('mouseout', $(this));
-        });
     }
     localStorage['heroItems'] = JSON.stringify(heroJson.items);
     localStorage['heroSkills'] = JSON.stringify(heroJson.skills);
@@ -330,9 +302,7 @@ function populateGearCards(heroJson) {
                 let tooltipParams = JSON.parse(localStorage.tooltipParams);
                 tooltipParams[itemJson.id] = itemJson;
                 localStorage.tooltipParams = JSON.stringify(tooltipParams);
-                // console.log($(`#${key}`));
                 $(`#${key}`).empty();
-                // console.log($(`#${key}`));
 
                 let width = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '64px';
                 let height = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '128px';
@@ -364,8 +334,6 @@ function bindHeroData(heroId) {
     // console.log(heroId);
     getHeroProfile(heroId)
         .then(function(heroJson) {
-            // console.log(heroJson);
-            // localStorage.tooltipParams = JSON.stringify({});
             populateStatsTable(heroJson);
 
             return heroJson;
@@ -410,37 +378,26 @@ function bindHeroData(heroId) {
 
                 // $('#tblRowActiveSkills').append(`<td>`).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i>"></div><img src=${srcSkill}>`);
                 $('#tblRowActiveSkills')
-                  .append($("<td style='width: 64px'>")
-                    .append($(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'>${skillToolTipText})</div>"></a>`)
-                      .append($(`<img src=${srcSkill}>`))));
+                    .append($("<td style='width: 64px'>")
+                        .append($(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'>${skillToolTipText})</div>"></a>`)
+                            .append($(`<img src=${srcSkill}>`))));
             }
 
             $('#tblRowPassiveSkills').empty();
 
             for (let skillObj of heroJson.skills.passive) {
-                // console.log(JSON.stringify(heroJson));
-                // console.log(heroJson.skills);
-                // console.log(skillObj);
-                // console.log(skillObj.skill);
-                // console.log(skillObj.skill.icon);
                 if (!('skill' in skillObj)) {
                     continue;
                 }
-                // console.log(skillObj);
                 let iconSkill = skillObj.skill.icon;
                 let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${APIKEY}`;
                 let skillToolTipText = skillObj.skill.description;
-                if (skillObj.skill.flavor) {
-                    // console.log(skillObj.skill.flavor);
-                    // skillToolTipText += skillObj.skill.flavor;
-                    // skillToolTipText += skillObj.skill.flavor;
-                }
-                // console.log(srcSkill);
+                if (skillObj.skill.flavor) {}
                 // $('#tblRowPassiveSkills').append($("<td>")).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i></div><img src=${srcSkill}></a>`);
-                                $('#tblRowPassiveSkills')
-                                  .append($("<td style='width: 100px'>")
-                                    .append($(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'>${skillToolTipText})</div>"></a>`)
-                                      .append($(`<img src=${srcSkill}>`))));
+                $('#tblRowPassiveSkills')
+                    .append($("<td style='width: 100px'>")
+                        .append($(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'>${skillToolTipText})</div>"></a>`)
+                            .append($(`<img src=${srcSkill}>`))));
                 $(document).ready(function() {
                     $('.tooltipped').tooltip({
                         delay: 50,
@@ -448,15 +405,6 @@ function bindHeroData(heroId) {
                     });
                 });
             }
-            // console.log("\"Power begets power. The excess energy from one spell is absorbed by the other, and so the effect is sustained.\" —Excerpt from Grand Master Clavaught's Lecture on Synergistic Effects in Esoteric Arcane Spheres");
             return heroJson;
-        })
-        .then(function(heroJson) {
-            // let promises = [];
-            // for(item of heroJson.items) {
-            //   let url =
-            //   promises.push(fetch())
-            // }
-            // console.log(heroJson);
         });
 }
