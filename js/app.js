@@ -428,7 +428,7 @@ function bindHeroData(heroId) {
                 }
                 // console.log(skillObj);
                 let iconSkill = skillObj.skill.icon;
-                let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${APIKEY}`;
+                let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${_apiKey}`;
                 let skillToolTipText = skillObj.skill.description;
                 if (skillObj.skill.flavor) {
                     // console.log(skillObj.skill.flavor);
