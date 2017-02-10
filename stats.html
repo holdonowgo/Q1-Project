@@ -351,6 +351,26 @@
     <script src="js/bluebird.min.js"></script>
     <script src="js/require.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        function getOrPrompt(lsKeyValue) {
+            var valInStorage = localStorage.getItem(lsKeyValue);
+
+            if (!valInStorage) {
+                valInStorage = prompt(`Enter a value for ${lsKeyValue}`);
+                localStorage.setItem(lsKeyValue, valInStorage);
+            }
+
+            return valInStorage;
+        }
+
+        let battleTag = getOrPrompt('battleTag')
+        let name = getOrPrompt('name')
+        let apiKey = getOrPrompt('apiKey');
+        let googleSrc = `` // put proper src in here
+        let scriptTag = document.createElement('script');
+        scriptTag.src = googleSrc;
+        document.body.append(scriptTag);
+    </script>
 </body>
 
 </html>
