@@ -1,18 +1,16 @@
-// let name = localStorage.name;
-// let tag = localStorage.tag;
-// let key = localStorage.apiKey;
+let _name = NAME;
+let _battleTag = BATTLETAG;
+let _apiKey = APIKEY;
 
-console.log(NAME);
-console.log(BATTLETAG);
-console.log(APIKEY);
-
-// let name = NAME;
-// let tag = BATTLETAG;
-// let key = APIKEY;
-//
-// localStorage.name = name;
-// localStorage.tag = tag;
-// localStorage.apiKey = key;
+if(!_name) {
+  _name = localStorage.name;
+}
+if(!_battleTag) {
+  _battleTag = localStorage.battleTag;
+}
+if(!_apiKey) {
+  _apiKey = localStorage.apiKey;
+}
 
 // Initialize collapse button
 $(".button-collapse").sideNav();
@@ -136,10 +134,10 @@ let statHighlightLookup = {
     // "secondaryResource": 'SECONDARY RESOURCE'
 };
 
-loadGear(NAME, BATTLETAG, APIKEY);
+loadGear();
 
-function loadGear(name, tag, key) {
-    let url = `https://us.api.battle.net/d3/profile/${NAME}-${BATTLETAG}/?locale=en_US&apikey=${APIKEY}`;
+function loadGear() {
+    let url = `https://us.api.battle.net/d3/profile/${_name}-${_battleTag}/?locale=en_US&apikey=${_apiKey}`;
     return fetch(url)
         .then(function(response) {
             return response.json();
@@ -220,8 +218,8 @@ function bindHeros(heroObjs) {
     // bindHeroData(slider.children()[0].id);
 }
 
-function getCareerProfile(name, tag, key) {
-    return fetch(`https://us.api.battle.net/d3/profile/${NAME}-${BATTLETAG}/?locale=en_US&apikey=${APIKEY}`)
+function getCareerProfile() {
+    return fetch(`https://us.api.battle.net/d3/profile/${_name}-${_battleTag}/?locale=en_US&apikey=${_apiKey}`)
         .then(function(response) {
             if (response.ok) {
                 return response.json();
@@ -237,7 +235,7 @@ function getCareerProfile(name, tag, key) {
 }
 
 function getHeroProfile(heroId) {
-    let url = `https://us.api.battle.net/d3/profile/${NAME}-${BATTLETAG}/hero/${heroId}?locale=en_US&apikey=${APIKEY}`;
+    let url = `https://us.api.battle.net/d3/profile/${_name}-${_battleTag}/hero/${heroId}?locale=en_US&apikey=${_apiKey}`;
     // console.log(url);
     return fetch(url)
         .then(function(response) {
@@ -317,7 +315,7 @@ function populateGearCards(heroJson) {
     localStorage.tooltipParams = JSON.stringify({});
     for (let key in heroJson.items) {
         let flavorText;
-        let url = `https://us.api.battle.net/d3/data/${heroJson.items[key].tooltipParams}?locale=en_US&apikey=${APIKEY}`;
+        let url = `https://us.api.battle.net/d3/data/${heroJson.items[key].tooltipParams}?locale=en_US&apikey=${_apiKey}`;
         fetch(url)
             .then(function(response) {
                 return response.json();
