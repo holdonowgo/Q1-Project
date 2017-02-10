@@ -2,20 +2,20 @@ let _name;
 let _battleTag;
 let _apiKey;
 
-if(!NAME) {
-  _name = localStorage.name;
-}else {
+if(!localStorage.name) {
   _name = NAME;
-}
-if(!BATTLETAG) {
-  _battleTag = localStorage.battleTag;
 }else {
+  _name = localStorage.name;
+}
+if(!localStorage.battleTag) {
   _battleTag = BATTLETAG;
-}
-if(!APIKEY) {
-  _apiKey = localStorage.apiKey;
 }else {
+  _battleTag = localStorage.battleTag;
+}
+if(!localStorage.apiKey) {
   _apiKey = APIKEY;
+}else {
+  _apiKey = localStorage.apiKey;
 }
 
 // Initialize collapse button
