@@ -67,7 +67,7 @@ $(document).ready(function() {
             }
 
             $("#modalCardContent").append($(`<br/><i>${itemParams.flavorText}</i>`));
-            $('#card-image').attr('src', `http://media.blizzard.com/d3/icons/items/large/${itemParams.icon}.png?locale=en_US&apikey=${_apiKey}`);
+            $('#card-image').attr('src', `https://media.blizzard.com/d3/icons/items/large/${itemParams.icon}.png?locale=en_US&apikey=${_apiKey}`);
         },
     });
 });
@@ -306,7 +306,7 @@ function populateGearCards(heroJson) {
 
                 let width = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '64px';
                 let height = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '128px';
-                let src = `http://media.blizzard.com/d3/icons/items/large/${heroJson.items[key].icon}.png?locale=en_US&apikey=${_apiKey}`;
+                let src = `https://media.blizzard.com/d3/icons/items/large/${heroJson.items[key].icon}.png?locale=en_US&apikey=${_apiKey}`;
                 $(`#${key}`).attr('name', `${itemJson.id}`);
                 $(`#${key}`)
                     .append($('<div class="card-image waves-effect waves-block waves-light">')
@@ -350,7 +350,7 @@ function bindHeroData(heroId) {
                     continue;
                 }
                 let iconSkill = skillObj.skill.icon;
-                let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${_apiKey}`;
+                let srcSkill = `https://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${_apiKey}`;
 
                 let skillToolTipText = skillObj.skill.description;
                 if (skillObj.skill.flavor) {
@@ -390,7 +390,7 @@ function bindHeroData(heroId) {
                     continue;
                 }
                 let iconSkill = skillObj.skill.icon;
-                let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${APIKEY}`;
+                let srcSkill = `https://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${APIKEY}`;
                 let skillToolTipText = skillObj.skill.description;
                 if (skillObj.skill.flavor) {}
                 // $('#tblRowPassiveSkills').append($("<td>")).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i></div><img src=${srcSkill}></a>`);
