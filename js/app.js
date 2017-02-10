@@ -1,6 +1,18 @@
-let name = localStorage.name;
-let tag = localStorage.tag;
-let key = localStorage.apiKey;
+// let name = localStorage.name;
+// let tag = localStorage.tag;
+// let key = localStorage.apiKey;
+
+console.log(NAME);
+console.log(BATTLETAG);
+console.log(APIKEY);
+
+// let name = NAME;
+// let tag = BATTLETAG;
+// let key = APIKEY;
+//
+// localStorage.name = name;
+// localStorage.tag = tag;
+// localStorage.apiKey = key;
 
 // Initialize collapse button
 $(".button-collapse").sideNav();
@@ -51,7 +63,7 @@ $(document).ready(function() {
             }
 
             $("#modalCardContent").append($(`<br/><i>${itemParams.flavorText}</i>`));
-            $('#card-image').attr('src', `http://media.blizzard.com/d3/icons/items/large/${itemParams.icon}.png?locale=en_US&apikey=${localStorage.apiKey}`);
+            $('#card-image').attr('src', `http://media.blizzard.com/d3/icons/items/large/${itemParams.icon}.png?locale=en_US&apikey=${APIKEY}`);
         },
     });
 });
@@ -124,10 +136,10 @@ let statHighlightLookup = {
     // "secondaryResource": 'SECONDARY RESOURCE'
 };
 
-loadGear(name, tag, key);
+loadGear(NAME, BATTLETAG, APIKEY);
 
 function loadGear(name, tag, key) {
-    let url = `https://us.api.battle.net/d3/profile/${name}-${tag}/?locale=en_US&apikey=${key}`;
+    let url = `https://us.api.battle.net/d3/profile/${NAME}-${BATTLETAG}/?locale=en_US&apikey=${APIKEY}`;
     return fetch(url)
         .then(function(response) {
             return response.json();
@@ -148,41 +160,68 @@ function bindHeros(heroObjs) {
         let carouselItem = document.createElement('a');
         carouselItem.addEventListener('click', function(evt) {
 
-            $("#tblStats").find('tbody').empty();
+            // $("#tblStats").find('tbody').empty();
             localStorage.heroId = evt.target.name;
             bindHeroData(evt.target.name);
         });
         carouselItem.setAttribute("class", "carousel-item active");
         divCarousel.appendChild(carouselItem);
         let carouselImage = document.createElement('img');
+        carouselImage.setAttribute("id", `${heroObj.id}`)
         carouselImage.setAttribute("name", `${heroObj.id}`)
         let gender = heroObj.gender === 0 ? 'male' : 'female';
         let heroClass = heroObj.class;
         carouselImage.setAttribute('src', `avatars/${heroClass}_${gender}.png`);
         carouselItem.appendChild(carouselImage);
 
-        let heroText = document.createTextNode(`${heroObj.name} Level: ${heroObj.level}`);
-        carouselItem.appendChild(heroText);
+
+        // .append($('<td>')
+        //     .text(statLookup[key])
+        let p1 = document.createElement('h5');
+        p1.textContent = `${heroObj.name}`;
+        let p2 = document.createElement('h6');
+        p2.textContent = `Level: ${heroObj.level}`;
+
+        carouselItem.appendChild(p1);
+        carouselItem.appendChild(p2);
+
+        // let heroText = document.createTextNode(`${heroObj.name} Level: ${heroObj.level}`);
+        // carouselItem.appendChild(heroText);
     }
 
     //init carousel
-    var slider = $('.carousel');
-    slider.carousel();
+    // let slider = $('.carousel');
+    // slider.carousel();
+    $('.carousel').carousel({
+        distribution: -50,
+        indicators: true,
+        padding: 200,
+        shift: 50
+    });
 
     // //add a new item
     // slider.append('<a class="carousel-item active" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>');
 
     //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
-    if (slider.hasClass('initialized')) {
-        slider.removeClass('initialized');
+    if ($('.carousel').hasClass('initialized')) {
+        $('.carousel').removeClass('initialized');
     }
 
     //just reinit the carousel
-    slider.carousel();
+    // $('.carousel').carousel();
+    $('.carousel').carousel({
+        distribution: -50,
+        indicators: true,
+        padding: 200,
+        shift: 50
+    });
+
+    // console.log(slider.children()[0].id);
+    // bindHeroData(slider.children()[0].id);
 }
 
 function getCareerProfile(name, tag, key) {
-    return fetch(`https://us.api.battle.net/d3/profile/${name}-${tag}/?locale=en_US&apikey=${key}`)
+    return fetch(`https://us.api.battle.net/d3/profile/${NAME}-${BATTLETAG}/?locale=en_US&apikey=${APIKEY}`)
         .then(function(response) {
             if (response.ok) {
                 return response.json();
@@ -198,7 +237,7 @@ function getCareerProfile(name, tag, key) {
 }
 
 function getHeroProfile(heroId) {
-    let url = `https://us.api.battle.net/d3/profile/${localStorage.name}-${localStorage.tag}/hero/${heroId}?locale=en_US&apikey=${localStorage.apiKey}`;
+    let url = `https://us.api.battle.net/d3/profile/${NAME}-${BATTLETAG}/hero/${heroId}?locale=en_US&apikey=${APIKEY}`;
     // console.log(url);
     return fetch(url)
         .then(function(response) {
@@ -216,6 +255,8 @@ function getHeroProfile(heroId) {
 }
 
 function populateStatsTable(heroJson) {
+
+    $("#tblStats").find('tbody').empty();
     let stats = heroJson.stats;
     let statsArray = [];
     for (let key in stats) { // bind stats table
@@ -228,8 +269,8 @@ function populateStatsTable(heroJson) {
                         let lookupText = statHighlightLookup[$(this).closest('tr')[0].id];
                         let itemJson = JSON.parse(localStorage.tooltipParams);
                         for (let key in itemJson) {
-                            console.log(itemJson);
-                            console.log(key);
+                            // console.log(itemJson);
+                            // console.log(key);
                             let item = itemJson[key];
                             // console.log(item);
                             for (let attr of item.attributes.primary) {
@@ -276,7 +317,7 @@ function populateGearCards(heroJson) {
     localStorage.tooltipParams = JSON.stringify({});
     for (let key in heroJson.items) {
         let flavorText;
-        let url = `https://us.api.battle.net/d3/data/${heroJson.items[key].tooltipParams}?locale=en_US&apikey=${localStorage.apiKey}`;
+        let url = `https://us.api.battle.net/d3/data/${heroJson.items[key].tooltipParams}?locale=en_US&apikey=${APIKEY}`;
         fetch(url)
             .then(function(response) {
                 return response.json();
@@ -285,11 +326,13 @@ function populateGearCards(heroJson) {
                 let tooltipParams = JSON.parse(localStorage.tooltipParams);
                 tooltipParams[itemJson.id] = itemJson;
                 localStorage.tooltipParams = JSON.stringify(tooltipParams);
+                // console.log($(`#${key}`));
                 $(`#${key}`).empty();
+                // console.log($(`#${key}`));
 
                 let width = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '64px';
                 let height = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '128px';
-                let src = `http://media.blizzard.com/d3/icons/items/large/${heroJson.items[key].icon}.png?locale=en_US&apikey=${localStorage.apiKey}`;
+                let src = `http://media.blizzard.com/d3/icons/items/large/${heroJson.items[key].icon}.png?locale=en_US&apikey=${APIKEY}`;
                 $(`#${key}`).attr('name', `${itemJson.id}`);
                 $(`#${key}`)
                     .append($('<div class="card-image waves-effect waves-block waves-light">')
@@ -314,8 +357,10 @@ function populateGearCards(heroJson) {
 }
 
 function bindHeroData(heroId) {
+    // console.log(heroId);
     getHeroProfile(heroId)
         .then(function(heroJson) {
+            // console.log(heroJson);
             // localStorage.tooltipParams = JSON.stringify({});
             populateStatsTable(heroJson);
 
@@ -333,7 +378,7 @@ function bindHeroData(heroId) {
                     continue;
                 }
                 let iconSkill = skillObj.skill.icon;
-                let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${localStorage.apiKey}`;
+                let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${APIKEY}`;
 
                 let skillToolTipText = skillObj.skill.description;
                 if (skillObj.skill.flavor) {
@@ -359,10 +404,15 @@ function bindHeroData(heroId) {
                     }));
                 card = card.prop('outerHTML');
 
-                $('#tblRowActiveSkills').append(`<td>`).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i>"></div><img src=${srcSkill}>`);
+                // $('#tblRowActiveSkills').append(`<td>`).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i>"></div><img src=${srcSkill}>`);
+                $('#tblRowActiveSkills')
+                  .append($("<td style='width: 64px'>")
+                    .append($(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'>${skillToolTipText})</div>"></a>`)
+                      .append($(`<img src=${srcSkill}>`))));
             }
 
             $('#tblRowPassiveSkills').empty();
+
             for (let skillObj of heroJson.skills.passive) {
                 // console.log(JSON.stringify(heroJson));
                 // console.log(heroJson.skills);
@@ -372,17 +422,21 @@ function bindHeroData(heroId) {
                 if (!('skill' in skillObj)) {
                     continue;
                 }
+                // console.log(skillObj);
                 let iconSkill = skillObj.skill.icon;
-                let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${localStorage.apiKey}`;
+                let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${APIKEY}`;
                 let skillToolTipText = skillObj.skill.description;
                 if (skillObj.skill.flavor) {
                     // console.log(skillObj.skill.flavor);
                     // skillToolTipText += skillObj.skill.flavor;
-                    skillToolTipText += skillObj.skill.flavor;
+                    // skillToolTipText += skillObj.skill.flavor;
                 }
-                let y = "\"Power begets power. The excess energy from one spell is absorbed by the other, and so the effect is sustained.\" —Excerpt from Grand Master Clavaught's Lecture on Synergistic Effects in Esoteric Arcane Spheres";
-                // $('#tblRowPassiveSkills').append(`<td>`).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i>"></div><img src=${srcSkill}>`);
-                $('#tblRowPassiveSkills').append($("<td>")).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i></div><img src=${srcSkill}></a>`);
+                // console.log(srcSkill);
+                // $('#tblRowPassiveSkills').append($("<td>")).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i></div><img src=${srcSkill}></a>`);
+                                $('#tblRowPassiveSkills')
+                                  .append($("<td style='width: 100px'>")
+                                    .append($(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'>${skillToolTipText})</div>"></a>`)
+                                      .append($(`<img src=${srcSkill}>`))));
                 $(document).ready(function() {
                     $('.tooltipped').tooltip({
                         delay: 50,
