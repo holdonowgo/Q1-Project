@@ -43,25 +43,21 @@ $(document).ready(function() {
             let itemParams = JSON.parse(localStorage.tooltipParams)[id];
 
             $("#modalCardContent").empty();
-            // $("#modalCardContent").attr('style',  `background-color:${itemParams.displayColor}`);
             $("#modalCardContent").append($(`<h5>${itemParams.name}</h5>`));
             $("#modalCardContent").append($(`<span style='color:${itemParams.displayColor}'><h6>${itemParams.typeName}</h6></span>`));
             $("#modalCardContent").append($(`<b>Primary</b><br/>`));
             for (let primAttr of itemParams.attributes.primary) {
-                // priTxt.innerText += primAttr.text + ' ' + primAttr.color + '\n\r';
                 $("#modalCardContent").append($(`<i class="tiny material-icons">label</i><span style="color:${primAttr.color}">${primAttr.text}</span><br/>`));
             }
 
             $("#modalCardContent").append($(`<br/><b>Secondary</b><br/>`));
             for (let secAttr of itemParams.attributes.secondary) {
-                // secTxt.innerText += secAttr.text + ' ' + secAttr.color + '\n\r';
                 $("#modalCardContent").append($(`<i class="tiny material-icons">label_outline</i><span style="color:${secAttr.color}">${secAttr.text}</span><br/>`));
             }
 
             if (itemParams.attributes.passive.length) {
                 $("#modalCardContent").append($(`<br/><b>Passive</b><br/>`));
                 for (let pasAttr of itemParams.attributes.passive) {
-                    // secTxt.innerText += secAttr.text + ' ' + secAttr.color + '\n\r';
                     $("#modalCardContent").append($(`<p style="color:${pasAttr.color}">${pasAttr.text}</p>`));
                 }
             }
@@ -163,8 +159,6 @@ function bindHeros(heroObjs) {
         let divCarousel = document.getElementById('heroesCarosuel');
         let carouselItem = document.createElement('a');
         carouselItem.addEventListener('click', function(evt) {
-
-            // $("#tblStats").find('tbody').empty();
             localStorage.heroId = evt.target.name;
             bindHeroData(evt.target.name);
         });
@@ -178,9 +172,6 @@ function bindHeros(heroObjs) {
         carouselImage.setAttribute('src', `avatars/${heroClass}_${gender}.png`);
         carouselItem.appendChild(carouselImage);
 
-
-        // .append($('<td>')
-        //     .text(statLookup[key])
         let p1 = document.createElement('h5');
         p1.textContent = `${heroObj.name}`;
         let p2 = document.createElement('h6');
@@ -188,14 +179,9 @@ function bindHeros(heroObjs) {
 
         carouselItem.appendChild(p1);
         carouselItem.appendChild(p2);
-
-        // let heroText = document.createTextNode(`${heroObj.name} Level: ${heroObj.level}`);
-        // carouselItem.appendChild(heroText);
     }
 
     //init carousel
-    // let slider = $('.carousel');
-    // slider.carousel();
     $('.carousel').carousel({
         distribution: -50,
         indicators: true,
@@ -219,9 +205,6 @@ function bindHeros(heroObjs) {
         padding: 200,
         shift: 50
     });
-
-    // console.log(slider.children()[0].id);
-    // bindHeroData(slider.children()[0].id);
 }
 
 function getCareerProfile() {
@@ -267,9 +250,6 @@ function populateStatsTable(heroJson) {
         $("#tblStats").find('tbody')
             .append($(`<tr name='${key}' id='${key}'>`)
                 .hover(function(event) {
-                        // $( this ).fadeOut( 100 );
-                        // $( this ).fadeIn( 500 );
-                        // console.log($(this).closest('tr')[0].id);
                         let lookupText = statHighlightLookup[$(this).closest('tr')[0].id];
                         let itemJson = JSON.parse(localStorage.tooltipParams);
                         for (let key in itemJson) {
@@ -327,12 +307,11 @@ function populateGearCards(heroJson) {
                 return response.json();
             })
             .then(function(itemJson) {
+              //  create item cards for each pice of gear along with modal dialogs for further details.
                 let tooltipParams = JSON.parse(localStorage.tooltipParams);
                 tooltipParams[itemJson.id] = itemJson;
                 localStorage.tooltipParams = JSON.stringify(tooltipParams);
-                // console.log($(`#${key}`));
                 $(`#${key}`).empty();
-                // console.log($(`#${key}`));
 
                 let width = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '64px';
                 let height = key === 'leftFinger' || key === 'rightFinger' || key === 'waist' || key === 'neck' ? '64px' : '128px';
@@ -361,11 +340,8 @@ function populateGearCards(heroJson) {
 }
 
 function bindHeroData(heroId) {
-    // console.log(heroId);
     getHeroProfile(heroId)
         .then(function(heroJson) {
-            // console.log(heroJson);
-            // localStorage.tooltipParams = JSON.stringify({});
             populateStatsTable(heroJson);
 
             return heroJson;
@@ -375,6 +351,7 @@ function bindHeroData(heroId) {
             return heroJson;
         })
         .then(function(heroJson) {
+          // dyanamically create active skill icons and tooltip rollovers
             let skillToolTipText;
             $('#tblRowActiveSkills').empty();
             for (let skillObj of heroJson.skills.active) {
@@ -417,12 +394,8 @@ function bindHeroData(heroId) {
 
             $('#tblRowPassiveSkills').empty();
 
+            // create passive skill icons with tool tip rollovers
             for (let skillObj of heroJson.skills.passive) {
-                // console.log(JSON.stringify(heroJson));
-                // console.log(heroJson.skills);
-                // console.log(skillObj);
-                // console.log(skillObj.skill);
-                // console.log(skillObj.skill.icon);
                 if (!('skill' in skillObj)) {
                     continue;
                 }
@@ -430,12 +403,9 @@ function bindHeroData(heroId) {
                 let iconSkill = skillObj.skill.icon;
                 let srcSkill = `http://media.blizzard.com/d3/icons/skills/64/${iconSkill}.png?locale=en_US&apikey=${_apiKey}`;
                 let skillToolTipText = skillObj.skill.description;
-                if (skillObj.skill.flavor) {
-                    // console.log(skillObj.skill.flavor);
-                    // skillToolTipText += skillObj.skill.flavor;
-                    // skillToolTipText += skillObj.skill.flavor;
-                }
-                // console.log(srcSkill);
+                // if (skillObj.skill.flavor) {
+                //     skillToolTipText += skillObj.skill.flavor;
+                // }
                 // $('#tblRowPassiveSkills').append($("<td>")).append(`<a class="img tooltipped" data-position="top" data-delay="50" data-tooltip="<div style='width:200px'><i>${skillToolTipText}</i></div><img src=${srcSkill}></a>`);
                                 $('#tblRowPassiveSkills')
                                   .append($("<td style='width: 100px'>")
@@ -448,15 +418,6 @@ function bindHeroData(heroId) {
                     });
                 });
             }
-            // console.log("\"Power begets power. The excess energy from one spell is absorbed by the other, and so the effect is sustained.\" —Excerpt from Grand Master Clavaught's Lecture on Synergistic Effects in Esoteric Arcane Spheres");
             return heroJson;
-        })
-        .then(function(heroJson) {
-            // let promises = [];
-            // for(item of heroJson.items) {
-            //   let url =
-            //   promises.push(fetch())
-            // }
-            // console.log(heroJson);
         });
 }
